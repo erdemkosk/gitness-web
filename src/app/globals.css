@@ -3,19 +3,90 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
   }
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgb(var(--background-end-rgb))
+  )
+  rgb(var(--background-start-rgb));
+}
+
+@layer components {
+  .terminal-window {
+    @apply bg-gray-900 rounded-lg p-4 shadow-2xl;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* Custom animations */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-blink {
+  animation: blink 1s step-start infinite;
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-in;
+}
+
+/* Terminal cursor */
+.terminal-cursor::after {
+  content: '█';
+  animation: blink 1s step-start infinite;
+  margin-left: 2px;
+}
+
+/* Responsive utilities */
+@media (min-width: 768px) {
+  .terminal-window {
+    @apply p-6;
+  }
+}
+
+/* Diğer özel stiller */
+
+@layer utilities {
+  .bg-dots {
+    background-image: radial-gradient(circle at center, #ffffff 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+}
+
+.terminal-window {
+  position: relative;
+  overflow: hidden;
+}
+
+.terminal-window::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #FF5D5D, #40BFBF);
+  opacity: 0.5;
 }
