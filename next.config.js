@@ -4,8 +4,9 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  basePath: '/gitness',
-  assetPrefix: '/gitness/',
+  // basePath ve assetPrefix'i kaldırıyoruz çünkü root domain kullanıyoruz
+  // basePath: '/gitness',
+  // assetPrefix: '/gitness/',
 }
 
 module.exports = nextConfig 
