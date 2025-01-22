@@ -24,9 +24,9 @@ export default function Features() {
       iconBg: "bg-[#FFBD4C]/10"
     },
     {
-      title: "Real-time Monitoring",
-      description: "Track your repository health continuously",
-      icon: "📈",
+      title: "Branch Support",
+      description: "You can analyze any branch of your repository",
+      icon: "🌿",
       gradient: "from-[#40BFBF]/20 to-[#35A3A3]/20",
       iconBg: "bg-[#40BFBF]/10"
     },

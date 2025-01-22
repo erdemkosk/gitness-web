@@ -7,6 +7,7 @@ export default function Hero() {
   const metrics = [
     useTypewriter('📊 Repository: erdemkosk/gitness', 30, 4000),
     useTypewriter('──────────────────────────────────────────────────', 30, 4200),
+    useTypewriter('🌿 Branch: default', 30, 4500),
     useTypewriter('🕒 Analysis Period: Last 1 year', 30, 4500),
     useTypewriter('', 30, 4700),
     useTypewriter('🎯 Core Metrics', 30, 5000),
