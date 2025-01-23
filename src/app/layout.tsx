@@ -16,6 +16,24 @@ export const metadata: Metadata = {
   title: "Gitness - Keep Your Codebase Fit & Healthy",
   description: "Protect your team against knowledge loss and bus factor risks. Monitor repository health and ensure equal knowledge distribution across your team.",
   keywords: "gitness, bus factor, code health, repository analysis, team knowledge, github actions",
+  icons: {
+    icon: [
+      { url: '/favicon.ico' },
+      { url: '/favicon.svg' },
+      { url: '/favicon-96x96.png', sizes: '96x96', type: 'image/png' }
+    ],
+    apple: [
+      { url: '/apple-touch-icon.png', sizes: '180x180' }
+    ],
+    other: [
+      {
+        rel: 'mask-icon',
+        url: '/favicon.svg',
+        color: '#1A1E23'
+      }
+    ]
+  },
+  manifest: '/site.webmanifest',
   openGraph: {
     title: "Gitness - Keep Your Codebase Fit & Healthy",
     description: "Protect your team against knowledge loss and bus factor risks. Monitor repository health and ensure equal knowledge distribution across your team.",
@@ -64,10 +82,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="canonical" href="https://gitness.dev" />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="manifest" href="/site.webmanifest" />
         <meta name="theme-color" content="#1A1E23" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="canonical" href="https://gitness.dev" />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
